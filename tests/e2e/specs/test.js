@@ -95,4 +95,12 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '3000000')
   });
+
+  it('dividing by 0 should display error', () => {
+    cy.get('#number9').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number0').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'error')
+  });
 })
