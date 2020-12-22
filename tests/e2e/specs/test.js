@@ -50,4 +50,18 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '8')
   });
+
+  it('multiple operations should be chained togather', () => {
+    cy.get('#number4').click()
+    cy.get('#operator_multiply').click()
+    cy.get('#number4').click()
+    cy.get('#operator_add').click()
+    cy.get('#number6').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number2').click()
+    cy.get('#operator_subtract').click()
+    cy.get('#number7').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '4')
+  });
 })
