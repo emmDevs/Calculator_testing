@@ -81,4 +81,18 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '4.5')
   });
+
+  it('output should be as expected for very large numbers', () => {
+    cy.get('#number9').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number3').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '3000000')
+  });
 })
