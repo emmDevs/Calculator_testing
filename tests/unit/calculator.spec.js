@@ -33,4 +33,12 @@ describe('App.vue', () => {
     wrapper.vm.divide('7');
     expect(wrapper.vm.runningTotal).to.equal(3)
   });
+  it('should be able to concatenate multiple number button clicks', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.numberClick(5)
+    wrapper.vm.numberClick(2)
+    wrapper.vm.numberClick(0)
+    wrapper.vm.numberClick(7);
+    expect(wrapper.vm.runningTotal).to.equal(5207)
+  });
 })
