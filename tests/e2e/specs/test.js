@@ -73,4 +73,12 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '-4')
   });
+
+  it('output should be as expected for decimal numbers', () => {
+    cy.get('#number9').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number2').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '4.5')
+  });
 })
