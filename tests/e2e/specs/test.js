@@ -64,4 +64,13 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '4')
   });
+
+  it('output should be as expected for negative numbers', () => {
+    cy.get('#number9').click()
+    cy.get('#operator_subtract').click()
+    cy.get('#number1').click()
+    cy.get('#number3').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-4')
+  });
 })
